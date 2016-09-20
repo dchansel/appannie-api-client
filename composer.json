@@ -1,0 +1,34 @@
+{
+    "name": "dchansel/appannie-api-client",
+    "type": "library",
+    "description": "PHP App Annie Api Client built on Guzzle",
+    "keywords": ["app annie", "api", "client"],
+    "homepage": "https://github.com/dchansel/appannie-api-client",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Damien Chansel",
+            "email": "dchansel@free.com"
+        }
+    ],
+    "require": {
+        "php": ">=5.4",
+        "guzzlehttp/guzzle": "~4|~5",
+        "guzzlehttp/guzzle-services": "~0.3|^0.4"
+    },
+    "require-dev": {
+        "phpunit/phpunit": "~4.8|^5"
+    },
+    "autoload": {
+        "psr-4": {
+            "Jcroll\\FoursquareApiClient\\": "src/",
+            "Jcroll\\FoursquareApiClient\\Tests\\": "tests/"
+        }
+    },
+    "minimum-stability": "stable",
+    "extra": {
+        "branch-alias": {
+            "dev-master": "2.1-dev"
+        }
+    }
+}
