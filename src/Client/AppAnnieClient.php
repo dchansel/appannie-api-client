@@ -1,6 +1,6 @@
 <?php
 
-namespace Jcroll\AppAnnieApiClient\Client;
+namespace dchansel\AppAnnieApiClient\Client;
 
 use GuzzleHttp\Command\Guzzle\Description;
 use GuzzleHttp\Command\Guzzle\GuzzleClient;
