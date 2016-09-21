@@ -23,11 +23,5 @@
         "psr-4": {
             "dchansel\\AppAnnieApiClient\\": "src/"
         }
-    },
-    "minimum-stability": "stable",
-    "extra": {
-        "branch-alias": {
-            "dev-master": "2.1-dev"
-        }
     }
 }
