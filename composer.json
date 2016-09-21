@@ -21,8 +21,7 @@
     },
     "autoload": {
         "psr-4": {
-            "Jcroll\\FoursquareApiClient\\": "src/",
-            "Jcroll\\FoursquareApiClient\\Tests\\": "tests/"
+            "dchansel\\AppAnnieApiClient\\": "src/"
         }
     },
     "minimum-stability": "stable",
