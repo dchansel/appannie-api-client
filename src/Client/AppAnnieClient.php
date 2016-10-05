@@ -32,8 +32,9 @@ class AppAnnieClient extends GuzzleClient
             'defaults' => [
                 'headers' => ['Authorization' => 'bearer ' . $config['api_key']]
                 ],
+            'debug' => true
             ]
-        ]);
+        );
 
         //$directory   = $version >= 20160901 ? 20160901 : 20130707;
         $contents    = file_get_contents(sprintf('%s/../Resources/config/client.json', __DIR__));
