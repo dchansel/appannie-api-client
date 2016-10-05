@@ -256,6 +256,142 @@
             },
             "uri": "{vertical}/{market}/{asset}/{product_id}/ranks",
             "responseModel": "getResponse"
+        },
+        "product/features" : {
+            "description": "Retrieve the sections and position of being featured in the store",
+            "httpMethod": "GET",
+            "parameters" : {
+                "vertical":{
+                    "description": "apps",
+                    "location": "uri",
+                    "required": true
+                },
+                "market" : {
+                    "description": "ios | mac | google-play. For vertical apps, market can be  ios | mac | google-play.",
+                    "location": "uri",
+                    "required": true
+                },
+                "asset" : {
+                    "description": "Options: app . For vertical apps, asset is app.",
+                    "location": "uri",
+                    "required": true
+                },
+                "product_id" : {
+                    "description": "Which product ranks should be retrieved. You can get product_id by Product List API",
+                    "location": "uri",
+                    "required": true
+                },
+                "start_date" : {
+                    "description": "Dates should be in the format yyyy-mm-dd.",
+                    "location": "query",
+                    "required": true
+                },
+                "end_date" : {
+                    "description": "Dates should be in the format yyyy-mm-dd.",
+                    "location": "query",
+                    "required": true
+                },
+                "countries" : {
+                    "description": "Which country results should be retrieved. Format: a plus-separated list of country short name. You can get all countries short name from: /meta/countries.",
+                    "location": "query"
+                },
+                "page_index" : {
+                    "description": "For the large response, will split it into several pages. The page index mean which page should be retrieved. If the page_index is out of range,will return error status 400 and relative error message.",
+                    "location": "query"
+                }
+            },
+            "uri": "{vertical}/{market}/{asset}/{product_id}/features",
+            "responseModel": "getResponse"
+        },
+        "product/reviews" : {
+            "description": "Retrieve one product’s reviews",
+            "httpMethod": "GET",
+            "parameters" : {
+                "vertical":{
+                    "description": "apps",
+                    "location": "uri",
+                    "required": true
+                },
+                "market" : {
+                    "description": "ios | mac | google-play. For vertical apps, market can be  ios | mac | google-play.",
+                    "location": "uri",
+                    "required": true
+                },
+                "asset" : {
+                    "description": "Options: app . For vertical apps, asset is app.",
+                    "location": "uri",
+                    "required": true
+                },
+                "product_id" : {
+                    "description": "Which product ranks should be retrieved. You can get product_id by Product List API",
+                    "location": "uri",
+                    "required": true
+                },
+                "start_date" : {
+                    "description": "Dates should be in the format yyyy-mm-dd.",
+                    "location": "query",
+                    "required": true
+                },
+                "end_date" : {
+                    "description": "Dates should be in the format yyyy-mm-dd.",
+                    "location": "query",
+                    "required": true
+                },
+                "countries" : {
+                    "description": "Which country results should be retrieved. Format: a plus-separated list of country short name. You can get all countries short name from: /meta/countries.",
+                    "location": "query"
+                },
+                "page_index" : {
+                    "description": "For the large response, will split it into several pages. The page index mean which page should be retrieved. If the page_index is out of range,will return error status 400 and relative error message.",
+                    "location": "query"
+                },
+                "version" : {
+                    "description": "Options: (specific version, like 1.0, 2.0.1) | all . For Google Play, we can’t offer version option. We will ignore this option if user uses it to access Google Play data.",
+                    "location": "query"  
+                },
+                "rating" : {
+                    "description" : "Options: 1 | 2 | 3 | 4 | 5 Also support multiple ratings. Example: 1+2 or 4+5",
+                    "location": "query"
+                },
+                "page_size" : {
+                    "description" : "Specifies the response page size, accept integer from 0 to 100.",
+                    "location": "query"
+                }
+            },
+            "uri": "{vertical}/{market}/{asset}/{product_id}/reviews",
+            "responseModel": "getResponse"
+        },
+        "product/ratings" : {
+            "description": "Retrieve a product's ratings",
+            "httpMethod": "GET",
+            "parameters" : {
+                "vertical":{
+                    "description": "apps",
+                    "location": "uri",
+                    "required": true
+                },
+                "market" : {
+                    "description": "ios | mac | google-play. For vertical apps, market can be  ios | mac | google-play.",
+                    "location": "uri",
+                    "required": true
+                },
+                "asset" : {
+                    "description": "Options: app . For vertical apps, asset is app.",
+                    "location": "uri",
+                    "required": true
+                },
+                "product_id" : {
+                    "description": "Which product ranks should be retrieved. You can get product_id by Product List API",
+                    "location": "uri",
+                    "required": true
+                },
+                "page_index" : {
+                    "description": "For the large response, will split it into several pages. The page index mean which page should be retrieved. If the page_index is out of range,will return error status 400 and relative error message.",
+                    "location": "query"
+                }
+            },
+            "uri": "{vertical}/{market}/{asset}/{product_id}/ratings",
+            "responseModel": "getResponse"
         }
     }
 }
