@@ -28,6 +28,7 @@
                     "description": "The account connection id. You can get all you account  connection info by calling/v1.2/accounts",
                     "location": "uri",
                     "required": true
+<<<<<<< HEAD
                 },
                 "page_index": {
                     "description": "Large responses will be split into several pages. The page index  is the page  that will be returned. If the page_index is out of  range, error status 400 and  the relative error message will be  returned.",
@@ -164,10 +165,79 @@
                     "location": "query"
                 },
                 "page_index" : {
+=======
+                },
+                "page_index": {
                     "description": "Large responses will be split into several pages. The page index  is the page  that will be returned. If the page_index is out of  range, error status 400 and  the relative error message will be  returned.",
                     "location": "query"
                 }
             },
+            "uri": "accounts/{account_id}/products",
+            "responseModel": "getResponse"
+        },
+        "accounts/products/iaps": {
+            "description": "Retrieve the In Product Purchase list of one product",
+            "httpMethod": "GET",
+            "parameters" : {
+                "account_id":{
+                    "description": "The account connection id. You can get all you account  connection info by calling/v1.2/accounts",
+                    "location": "uri",
+                    "required": true
+                },
+                "product_id":{
+                    "description": "Which app results should be retrieved.",
+                    "location": "uri",
+                    "required": true
+                },
+                "page_index": {
+                    "description": "Large responses will be split into several pages. The page index  is the page  that will be returned. If the page_index is out of  range, error status 400 and  the relative error message will be  returned.",
+                    "location": "query"
+                }
+            },
+            "uri": "accounts/{account_id}/products/{product_id}/iaps",
+            "responseModel": "getResponse"
+        },
+        "accounts/products/sales":  {
+            "description": "Retrieve the sales data for a single product.",
+            "httpMethod": "GET",
+            "parameters" : {
+                "account_id":{
+                    "description": "The account connection id. You can get all you account  connection info by calling/v1.2/accounts",
+                    "location": "uri",
+                    "required": true
+                },
+                 "product_id":{
+                    "description": "Which product should be retrieved.",
+                    "location": "uri",
+                    "required": true
+                },
+                "break_down": {
+                    "description": "The breakdown allows you to specify by which dimensions the results should be broken down. If not specified, the default behavior is to aggregate data for all countries, all dates and all products.",
+                    "location": "query"
+                },
+                "start_date": {
+                    "description": "Dates should be in the format yyyy-mm-dd.",
+                    "location": "query"
+                },
+                "end_date": {
+                    "description": "Dates should be in the format yyyy-mm-dd.For the breakdown product+country+date, please note that the date range can not exceed one year.",
+                    "location": "query"
+                },
+                "currency": {
+                    "description": "The short name of currency in which to present revenue data. You can get the currency definition at /v1.2/meta/currency",
+                    "location": "query"
+                },
+                "countries": {
+                    "description": "Retrieve results for a specific country or countries. The format is a plus-separated list of country code. For example: “US+FR” will return the sales data in America and France. You can get all countries code at /v1.2/meta/countries",
+                    "location": "query"
+                },
+                "page_index": {
+>>>>>>> 7f527c501f84e08a47404ca8bce6e34a13a2001d
+                    "description": "Large responses will be split into several pages. The page index  is the page  that will be returned. If the page_index is out of  range, error status 400 and  the relative error message will be  returned.",
+                    "location": "query"
+                }
+            },
+<<<<<<< HEAD
             "uri": "accounts/{account_id}/ad_items",
             "responseModel": "getResponse"
         },
@@ -305,6 +375,83 @@
         },
         "product/reviews" : {
             "description": "Retrieve one product’s reviews",
+=======
+            "uri": "accounts/{account_id}/products/{product_id}/sales",
+            "responseModel": "getResponse"
+        }, 
+        "accounts/sales": {
+            "description": "Retrieve a single account connection's sales information",
+            "httpMethod": "GET",
+            "parameters" : {
+                "account_id":{
+                    "description": "The account connection id. You can get all you account  connection info by calling/v1.2/accounts",
+                    "location": "uri",
+                    "required": true
+                },
+                "break_down": {
+                    "description": "The breakdown allows you to specify by which dimensions the results should be broken down. If not specified, the default behavior is to aggregate data for all countries, all dates and all products.",
+                    "location": "query"
+                },
+                "start_date": {
+                    "description": "Dates should be in the format yyyy-mm-dd.",
+                    "location": "query"
+                },
+                "end_date": {
+                    "description": "Dates should be in the format yyyy-mm-dd.For the breakdown product+country+date, please note that the date range can not exceed one year.",
+                    "location": "query"
+                },
+                "currency": {
+                    "description": "The short name of currency in which to present revenue data. You can get the currency definition at /v1.2/meta/currency",
+                    "location": "query"
+                },
+                "countries": {
+                    "description": "Retrieve results for a specific country or countries. The format is a plus-separated list of country code. For example: “US+FR” will return the sales data in America and France. You can get all countries code at /v1.2/meta/countries",
+                    "location": "query"
+                },
+                "page_index": {
+                    "description": "Large responses will be split into several pages. The page index  is the page  that will be returned. If the page_index is out of  range, error status 400 and  the relative error message will be  returned.",
+                    "location": "query"
+                }
+            },
+            "uri": "accounts/{account_id}/sales",
+            "responseModel": "getResponse"
+        },
+        "sharing/products": {
+            "description": "Retrieve the list of shared products a user may have access to. ",
+            "httpMethod": "GET",
+            "parameters" : {
+                "page_index": {
+                    "description": "Large responses will be split into several pages. The page index  is the page  that will be returned. If the page_index is out of  range, error status 400 and  the relative error message will be  returned.",
+                    "location": "query"
+                }
+            },
+            "uri": "sharing/products",
+            "responseModel": "getResponse"
+        },
+        "accounts/ad_items": {
+            "description": "List of all sites and/or campaigns for a specific ad platform account.",
+            "httpMethod": "GET",
+            "parameters" : {
+                "account_id":{
+                    "description": "The account connection id. You can get all you account  connection info by calling/v1.2/accounts",
+                    "location": "uri",
+                    "required": true
+                },
+                "ad_item_type" : {
+                    "description": "filter site|campaign for item list. If no item type is specified the API will return both sites and campaigns ordered first by linked apps and then by name.",
+                    "location": "query"
+                },
+                "page_index" : {
+                    "description": "Large responses will be split into several pages. The page index  is the page  that will be returned. If the page_index is out of  range, error status 400 and  the relative error message will be  returned.",
+                    "location": "query"
+                }
+            },
+            "uri": "accounts/{account_id}/ad_items",
+            "responseModel": "getResponse"
+        },
+        "product/details": {
+            "description": "List of all sites and/or campaigns for a specific ad platform account.",
+>>>>>>> 7f527c501f84e08a47404ca8bce6e34a13a2001d
             "httpMethod": "GET",
             "parameters" : {
                 "vertical":{
@@ -313,6 +460,7 @@
                     "required": true
                 },
                 "market" : {
+<<<<<<< HEAD
                     "description": "ios | mac | google-play. For vertical apps, market can be  ios | mac | google-play.",
                     "location": "uri",
                     "required": true
@@ -391,7 +539,26 @@
                 }
             },
             "uri": "{vertical}/{market}/{asset}/{product_id}/ratings",
+=======
+                    "description": "ios | mac |google-play | amazon-appstore  | windows-phone | windows-store |",
+                    "location": "uri",
+                    "required": true
+                },
+                "product_id" : {
+                    "description": "Which app's results should be retrieved.",
+                    "location": "uri",
+                    "required": true
+                },
+                "asset" : {
+                    "description": "app",
+                    "location": "uri",
+                    "required": true
+                }
+            },
+            "uri": "{vertical}/{market}/{asset}/{product_id}/details",
+>>>>>>> 7f527c501f84e08a47404ca8bce6e34a13a2001d
             "responseModel": "getResponse"
         }
+
     }
 }
