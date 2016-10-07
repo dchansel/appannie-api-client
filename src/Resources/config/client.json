@@ -171,6 +171,183 @@
             "uri": "accounts/{account_id}/ad_items",
             "responseModel": "getResponse"
         },
+        "product/ad_items": {
+            "description": "List of all sites and campaigns linked to a particular app.",
+            "httpMethod": "GET",
+            "parameters" : {
+                "vertical":{
+                    "description": "apps",
+                    "location": "uri",
+                    "required": true
+                },
+                "market" : {
+                    "description": "ios | mac |google-play | amazon-appstore  | windows-phone | windows-store |",
+                    "location": "uri",
+                    "required": true
+                },
+                "asset" : {
+                    "description": "app",
+                    "location": "uri",
+                    "required": true
+                },
+                "product_id" : {
+                    "description": "Which app's results should be retrieved.",
+                    "location": "uri",
+                    "required": true
+                },
+                "ad_item_type" :{
+                    "description": "filter site|campaign for item list",
+                    "location": "query"
+                },
+                "page_index" : {
+                    "description": "Large responses will be split into several pages. The page index  is the page  that will be returned. If the page_index is out of  range, error status 400 and  the relative error message will be  returned.",
+                    "location": "query"
+                }
+            },
+            "uri": "{vertical}/{market}/{asset}/{product_id}/ad_items",
+            "responseModel": "getResponse"
+        },
+
+        "ads/sales": {
+            "description": "Advertising metrics broken down by ad account, country, app, ad_item and/or date. Data can be filtered by country, ad account and app. The metrics returned will be based on the data breakdown chosen. Breakdown parameter must be provided.",
+            "httpMethod": "GET",
+            "parameters" : {
+                "break_down" : {
+                    "description": "Allows you to specify by which dimensions the results  should be broken down.",
+                    "location": "query",
+                    "required": true
+                },
+                "account_id" : {
+                    "description": "Allows you to filter the data for a single ad platform account. ",
+                    "location": "query"
+                },
+                "market" : {
+                    "description": "To filter the data for a single app, provide the market (eg. 'ios',  'google-play') for the app you would like to filter by. The market for  your apps can be pulled through the market list api. Please note that  you must provide the product id for the app using the parameter  'product_id'.",
+                    "location": "query"
+                },
+                "product_id" : {
+                    "description": "To filter the data for a single app, provide the product_id for the app  you would like to filter by. Please note, you must also provide the  market for this app using the parameter 'market'.",
+                    "location": "query"
+                },
+                "start_date" : {
+                    "description": "Dates should be in the format: yyyy-mm-dd.",
+                    "location": "query"
+                },
+                "end_date" : {
+                    "description": "Dates should be in the formatL yyyy-mm-dd.",
+                    "location": "query"
+                },
+                "currency" : {
+                    "description": "The short name of currency in which to present revenue  data. You can get the currency definition at /v1.2/meta/currency.",
+                    "location": "query"
+                },
+                "countries" : {
+                    "description": "Retrieve results for a specific country or multiple countries. To specify  multiple countries list the country codes separated by “+” (e.g.  'US+CA+AU' will return data in the United States, Canada and  Australia). Please note that not all ad platforms provide country level  data. In these cases, data is listed under country code 'UN' for  unknown.  All country codes are available by  calling /v1.2/meta/countries.",
+                    "location": "query"
+                },
+                "ad_item_type" : {
+                    "description": "Filter data for only sites or only campaigns. Valid values are “site” and “campaign”.",
+                    "location": "query"
+                },
+                "page_index" : {
+                    "description": "Large responses will be split into several pages. The page index is the  page that will be returned. If the page_index is out of range, error  status 400 and the relative error message will be returned.",
+                    "location": "query"
+                }
+            },
+            "uri": "ads/sales",
+            "responseModel": "getResponse"
+        },
+        "products/usage": {
+            "description": "Retrieve the usage data for a single product.",
+            "httpMethod": "GET",
+            "parameters" : {
+                "account_id":{
+                    "description": "The account connection id. You can get all you account  connection info by calling/v1.2/accounts",
+                    "location": "uri",
+                    "required": true
+                },
+                "product_id" : {
+                    "description": "Which app's results should be retrieved.",
+                    "location": "uri",
+                    "required": true
+                },
+                "data_source" : {
+                    "description": "Which data source should be retrieved. Only support ITC now, GA is coming soon.",
+                    "location": "uri",
+                    "required": true
+                },
+                "break_down" : {
+                    "description": "The breakdown allows you to specify by which dimensions the results should be broken down. 'itc'=iTunes Analytics data",
+                    "location": "query"
+                },
+                "start_date" : {
+                    "description": "Dates should be in the format: yyyy-mm-dd.",
+                    "location": "query"
+                },
+                "end_date" : {
+                    "description": "Dates should be in the formatL yyyy-mm-dd.",
+                    "location": "query"
+                },
+                "countries" : {
+                    "description": "Retrieve results for a specific country or multiple countries. To specify  multiple countries list the country codes separated by “+” (e.g.  'US+CA+AU' will return data in the United States, Canada and  Australia). Please note that not all ad platforms provide country level  data. In these cases, data is listed under country code 'UN' for  unknown.  All country codes are available by  calling /v1.2/meta/countries.",
+                    "location": "query"
+                },
+                "devices" : {
+                    "description": "Retrieve results for a specific device or devices. The format is a plus-separated list of devices. For example: 'iPhone+iPod' will return the usage data for iPhone and iPhone",
+                    "location": "query"
+                },
+                "page_index" : {
+                    "description": "Large responses will be split into several pages. The page index is the  page that will be returned. If the page_index is out of range, error  status 400 and the relative error message will be returned.",
+                    "location": "query"
+                }
+
+            },
+            "uri": "accounts/{account_id}/products/{product_id}/{data_source}/usage",
+            "responseModel": "getResponse"
+        },
+        "products/store_metrics": {
+            "description": "Retrieves store metrics data for a single product.",
+            "httpMethod": "GET",
+            "parameters" : {
+                "account_id":{
+                    "description": "The account connection id. You can get all you account  connection info by calling/v1.2/accounts",
+                    "location": "uri",
+                    "required": true
+                },
+                "product_id" : {
+                    "description": "Which app's results should be retrieved.",
+                    "location": "uri",
+                    "required": true
+                },
+                "break_down" : {
+                    "description": "The breakdown allows you to specify by which dimensions the results should be broken down.",
+                    "location": "query"
+                },
+                "start_date" : {
+                    "description": "Dates should be in the format: yyyy-mm-dd.",
+                    "location": "query"
+                },
+                "end_date" : {
+                    "description": "Dates should be in the formatL yyyy-mm-dd.",
+                    "location": "query"
+                },
+                "countries" : {
+                    "description": "Retrieve results for a specific country or multiple countries. To specify  multiple countries list the country codes separated by “+” (e.g.  'US+CA+AU' will return data in the United States, Canada and  Australia). Please note that not all ad platforms provide country level  data. In these cases, data is listed under country code 'UN' for  unknown.  All country codes are available by  calling /v1.2/meta/countries.",
+                    "location": "query"
+                },
+                "devices" : {
+                    "description": "Retrieve results for a specific device or devices. The format is a plus-separated list of devices. For example: 'iPhone+iPod' will return the store metrics data for iPhone and iPhone",
+                    "location": "query"
+                },
+                "page_index" : {
+                    "description": "Large responses will be split into several pages. The page index is the  page that will be returned. If the page_index is out of range, error  status 400 and the relative error message will be returned.",
+                    "location": "query"
+                }
+
+            },
+            "uri": "accounts/{account_id}/products/{product_id}/store_metrics",
+            "responseModel": "getResponse"
+        },
         "product/details": {
             "description": "List of all sites and/or campaigns for a specific ad platform account.",
             "httpMethod": "GET",
